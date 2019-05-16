@@ -7,9 +7,9 @@ cd buildroot
 git reset --hard HEAD^
 ls $path
 git am $path/*patch
-make -j`nproc`
-cp output/images/Image ../artifacts
-cp output/images/rootfs.cpio ../artifacts
-cp output/build/linux-5.0.14/vmlinux ../artifacts
-cd ../
+make
+cp output/images/Image $path/artifacts
+cp output/images/rootfs.cpio $path/artifacts
+cp output/build/linux-5.0.14/vmlinux $path/artifacts
+cd $path
 /opt/renode/tests/test.sh -r artifacts litex-linux.robot
